@@ -3,38 +3,36 @@ package br.com.devcanoa.moviesticker.imdb;
 import br.com.devcanoa.moviesticker.domain.Movie;
 import br.com.devcanoa.moviesticker.exception.ImdbJsonParserException;
 import org.springframework.boot.json.JacksonJsonParser;
+import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+@Service
 public class ImdbJsonParser {
 
-    private final String json;
-
-    public ImdbJsonParser(String json) {
-        this.json = json;
-    }
-
-    public List<Movie> parse() {
+    public List<Movie> parse(String json) {
         try {
-            return parseMovies();
+            return parseMovies(json);
         } catch (Exception e) {
             throw new ImdbJsonParserException(e.getMessage());
         }
     }
 
-    private List<Movie> parseMovies() {
+    private List<Movie> parseMovies(String json) {
         List<Movie> movies = new ArrayList<>();
 
-        getMoviesObjectsFromJson().forEach(object -> movies.add(parseMovie(object)));
+        getMoviesObjectsFromJson(json).forEach(object -> movies.add(parseMovie(object)));
 
         return movies;
     }
 
-    private List<Object> getMoviesObjectsFromJson() {
+    private List<Object> getMoviesObjectsFromJson(String json) {
         return convertObjectToList(new JacksonJsonParser().parseMap(json).get("items"));
     }
 
-    public List<Object> convertObjectToList(Object object) {
+    private List<Object> convertObjectToList(Object object) {
         return new ArrayList<>((Collection<?>) object);
     }
 
