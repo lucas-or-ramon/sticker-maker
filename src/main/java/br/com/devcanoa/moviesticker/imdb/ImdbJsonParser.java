@@ -14,16 +14,16 @@ public class ImdbJsonParser {
 
     public List<Movie> parse(String json) {
         try {
-            return parseMovies(json);
+            return parseToMovies(json);
         } catch (Exception e) {
             throw new ImdbJsonParserException(e.getMessage());
         }
     }
 
-    private List<Movie> parseMovies(String json) {
+    private List<Movie> parseToMovies(String json) {
         List<Movie> movies = new ArrayList<>();
 
-        getMoviesObjectsFromJson(json).forEach(object -> movies.add(parseMovie(object)));
+        getMoviesObjectsFromJson(json).forEach(object -> movies.add(parseToMovie(object)));
 
         return movies;
     }
@@ -36,7 +36,7 @@ public class ImdbJsonParser {
         return new ArrayList<>((Collection<?>) object);
     }
 
-    private Movie parseMovie(Object object) {
+    private Movie parseToMovie(Object object) {
         return new Movie(
                 getAttribute("year", object),
                 getAttribute("title", object),
