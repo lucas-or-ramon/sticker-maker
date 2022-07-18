@@ -15,6 +15,8 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    testImplementation 'org.easymock:easymock:4.3'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
