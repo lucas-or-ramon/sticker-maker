@@ -1,4 +1,4 @@
-package br.com.devcanoa.moviesticker.exception;
+package br.com.devcanoa.stickermaker.exception;
 
 import org.springframework.http.HttpStatus;
 

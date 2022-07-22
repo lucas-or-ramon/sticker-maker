@@ -1,7 +1,7 @@
-package br.com.devcanoa.moviesticker;
+package br.com.devcanoa.stickermaker;
 
-import br.com.devcanoa.moviesticker.exception.ImdbClientException;
-import br.com.devcanoa.moviesticker.imdb.ImdbClient;
+import br.com.devcanoa.stickermaker.sticker.exception.ImageClientException;
+import br.com.devcanoa.stickermaker.sticker.client.ImageClient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
@@ -12,15 +12,15 @@ import static org.easymock.EasyMock.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class ImdbClientTests extends MovieStickerApplicationTests {
+class ImageClientTests extends MovieStickerApplicationTests {
 
-    private ImdbClient imdbClient;
+    private ImageClient imageClient;
     private RestTemplate restTemplate;
 
     @BeforeEach
     void setup() {
         this.restTemplate = createMock(RestTemplate.class);
-        this.imdbClient = new ImdbClient(restTemplate);
+        this.imageClient = new ImageClient(restTemplate);
     }
 
     @Test
@@ -28,7 +28,7 @@ class ImdbClientTests extends MovieStickerApplicationTests {
         expect(restTemplate.getForObject(anyObject(), same(String.class))).andThrow(new HttpClientErrorException(HttpStatus.FORBIDDEN));
         replay(restTemplate);
 
-        assertThrows(ImdbClientException.class, () -> imdbClient.getBody(), "Deve lançar exceção devido erro ao conectar à API do imdb");
+        assertThrows(ImageClientException.class, () -> imageClient.getBody(null), "Deve lançar exceção devido erro ao conectar à API do imdb");
     }
 
     @Test
@@ -36,7 +36,7 @@ class ImdbClientTests extends MovieStickerApplicationTests {
         expect(restTemplate.getForObject(anyObject(), same(String.class))).andReturn(null);
         replay(restTemplate);
 
-        assertEquals(imdbClient.getBody(), "", "Deve retornar string vazia devido resposta da API do imdb ser null");
+        assertEquals(imageClient.getBody(null), "", "Deve retornar string vazia devido resposta da API do imdb ser null");
     }
 
     @Test
@@ -44,6 +44,6 @@ class ImdbClientTests extends MovieStickerApplicationTests {
         expect(restTemplate.getForObject(anyObject(), same(String.class))).andReturn(getStringWithTwoMovies());
         replay(restTemplate);
 
-        assertEquals(imdbClient.getBody(), getStringWithTwoMovies(), "Deve retornar a string json completa");
+        assertEquals(imageClient.getBody(null), getStringWithTwoMovies(), "Deve retornar a string json completa");
     }
 }
