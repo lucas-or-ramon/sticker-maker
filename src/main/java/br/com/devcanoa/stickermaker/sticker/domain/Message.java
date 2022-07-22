@@ -21,7 +21,7 @@ public final class Message {
         var font = new Font(fontNameValidator(messageRequest.fontName()), fontStyleValidator(messageRequest.fontStyle()), messageRequest.fontSize());
         var color  = colorValidator(messageRequest.color());
 
-        return new Message(font, color , messageRequest.content(), messageRequest.position());
+        return new Message(font, color , messageRequest.content(), Position.BOTTOM);
     }
 
     private static int fontStyleValidator(String style) {
