@@ -37,4 +37,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/sticker-maker:${{ steps.vars.outputs.tag }} , ${{ secrets.DOCKER_HUB_USERNAME }}/sticker-maker:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/sticker-maker:${{ github.run_id }} , ${{ secrets.DOCKER_HUB_USERNAME }}/sticker-maker:latest
