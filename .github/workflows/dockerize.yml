@@ -31,3 +31,4 @@ jobs:
         push: true
         no-cache: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/sticker-maker:latest
+    - run: ls -la
