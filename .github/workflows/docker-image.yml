@@ -40,6 +40,5 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         contex: .
-        file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/movie-sticker:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/sticker-maker:latest
