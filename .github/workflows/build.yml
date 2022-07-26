@@ -36,4 +36,4 @@ jobs:
       with:
         arguments: build
     - 
-      run: ls -la
+      run: ls -la build/libs
