@@ -1,6 +1,21 @@
-# Imersão Java da Alura
+# Sticker Maker
 
 Este projeto está sendo desenvolvido durante a Imersão Java da Alura, onde o objetivo é aperfeiçoar os conhecimentos em Java e desenvolvimento backend. 
+
+| :placard: Vitrine.Dev |     |
+| -------------  | --- |
+| :sparkles: Nome        | **Sticker Maker**
+| :label: Tecnologias | java, spring, aws (tecnologias utilizadas)
+| :rocket: URL         | https://sticker-maker-devcanoa.herokuapp.com/api/v1/sticker
+
+<!-- Inserir imagem com a #vitrinedev ao final do link -->
+![](https://static.apkdone.me/wp-content/uploads/2020/08/Sticker-Maker-poster.jpg#vitrinedev)
+
+## Detalhes do projeto
+
+Textos e imagens que descrevam seu projeto, suas conquistas, seus desafios, próximos passos, etc...
+
+# Imersão Java da Alura
 
 As APIs do [IMDB](https://imdb-api.com/) e da [NASA](https://api.nasa.gov/) são consumidas buscando imagens. Essas imagens são extraídas e tratadas pelo _sticker-maker_ de forma que seja possível criar Stickers customizados.
 
