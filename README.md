@@ -5,7 +5,7 @@ Este projeto está sendo desenvolvido durante a Imersão Java da Alura, onde o o
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
 | :sparkles: Nome        | **Sticker Maker**
-| :label: Tecnologias | java, spring, aws (tecnologias utilizadas)
+| :label: Tecnologias | java, spring, aws
 | :rocket: URL         | https://sticker-maker-devcanoa.herokuapp.com/api/v1/sticker
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
